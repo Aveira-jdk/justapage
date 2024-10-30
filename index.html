@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Team Operations Hub</title>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1b1b1b 30%, #111 100%);
+            color: #d0d0d0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ff1744;
+            margin-top: 50px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        p {
+            font-size: 1.3em;
+            color: #d50000;
+        }
+
+        img {
+            display: block;
+            margin: 30px auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 50%;
+            height: auto;
+            transition: transform 0.3s ease;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation Links */
+        nav {
+            margin: 20px 0;
+        }
+
+        .nav-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #ff1744;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #d50000;
+            transform: translateY(-3px);
+        }
+
+        /* Form Styles */
+        form {
+            margin: 20px auto;
+            width: 60%;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #ff1744;
+        }
+
+        input, textarea {
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1em;
+            width: 100%;
+            border: 2px solid #ff1744;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #d0d0d0;
+        }
+
+        input[type="submit"] {
+            background-color: #ff1744;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d50000;
+            transform: translateY(-3px);
+        }
+
+        /* List Styles */
+        ol {
+            margin: 20px auto;
+            width: 60%;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+
+        ol li {
+            padding: 10px 0;
+            font-size: 1.2em;
+            color: #ff1744;
+            list-style: decimal;
+        }
+
+        /* Table Styles */
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 80%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            background-color: #333;
+        }
+
+        table, th, td {
+            border: 1px solid #ff1744;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1em;
+            color: #d0d0d0;
+        }
+
+        th {
+            background-color: #ff1744;
+            color: white;
+        }
+
+        td {
+            background-color: #1e1e1e;
+        }
+
+        /* Section Display */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Easter Egg Styles */
+        .easter-egg {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            color: #d0d0d0;
+            font-size: 1.5em;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 50px;
+            background-color: #ff1744;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Red Team Operations Hub</h1>
+
+    <!-- Navigation Links -->
+    <nav>
+        <a href="#picture" class="nav-button" onclick="showSection('picture')">Recon</a>
+        <a href="#form" class="nav-button" onclick="showSection('form')">Feedback</a>
+        <a href="#list" class="nav-button" onclick="showSection('list')">Attack Techniques</a>
+        <a href="#table" class="nav-button" onclick="showSection('table')">Tools</a>
+        <a href="#thankyou" class="nav-button" onclick="showSection('thankyou')">Acknowledgements</a>
+    </nav>
+
+    <!-- Section 1: Picture -->
+    <section id="picture" class="active">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.6ykYIhjujrU3X2tzOZZKegHaHa&pid=15.1" alt="Cyber Recon Image">
+        <p>Information is your greatest weapon. Begin by gathering intel on your target.</p>
+    </section>
+
+<!-- Section 2: Form -->
+<section id="form">
+    <form id="phishing-form" onsubmit="handleFormSubmit(event)">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="message">Suggestions:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        
+        <input type="submit" value="Send">
+    </form>
+
+    <!-- Message Display -->
+    <div id="message-display" style="display: none; margin-top: 20px; color: #ff1744; font-size: 1.5em;">
+        Don’t be a fucking idiot and click on everything; your data’s already been sold!
+    </div>
+</section>
+
+<script>
+    function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Display the message
+        var messageDisplay = document.getElementById('message-display');
+        messageDisplay.style.display = 'block'; // Show the message
+    }
+</script>
+
+
+    <!-- Section 3: List -->
+    <section id="list">
+        <h2>Top 5 Attack Techniques</h2>
+        <ol>
+            <li>Spear Phishing: Targeted email attacks with crafted messages.</li>
+            <li>Privilege Escalation: Gaining elevated access to resources.</li>
+            <li>Pivoting: Moving laterally across compromised systems.</li>
+            <li>Credential Harvesting: Stealing passwords using various techniques.</li>
+            <li>Command & Control: Establishing remote control over compromised systems.</li>
+        </ol>
+    </section>
+
+    <!-- Section 4: Table -->
+    <section id="table">
+        <h2>Essential Tools for Red Teaming</h2>
+        <table>
+            <tr>
+                <th>Tool</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td>Metasploit</td>
+                <td>Exploitation Framework</td>
+            </tr>
+            <tr>
+                <td>Cobalt Strike</td>
+                <td>Post-Exploitation and C2</td>
+            </tr>
+            <tr>
+                <td>Burp Suite</td>
+                <td>Web Application Security Testing</td>
+            </tr>
+            <tr>
+                <td>Nmap</td>
+                <td>Network Scanning and Reconnaissance</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Section 5: Thank You -->
+    <section id="thankyou">
+        <h2>Stay Quiet, Hack Deeper</h2>
+        <img src="https://imgs.search.brave.com/3czyslSbyC6tZ4yxB1_F5gSfPd_8KgCJbF-LWku27wY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/cnE0eHE0cXkxaGM2/MS5qcGc_d2lkdGg9/NjQwJmNyb3A9c21h/cnQmYXV0bz13ZWJw/JnM9NTU0MDU5Yzlj/N2E2ZDM0NGQ3ZTg1/ODU4M2JjY2IyZTVj/NGNiODUyZg" alt="Stay Quiet, Hack Deeper" onclick="showEasterEgg()">
+        <p>Stay loud :)</p>
+        
+        <!-- Easter Egg Message -->
+        <div class="easter-egg" id="easter-egg">
+            You found it!
+        </div>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function showEasterEgg() {
+            var easterEgg = document.getElementById('easter-egg');
+            easterEgg.style.display = 'block'; // Show the Easter egg message
+        }
+    </script>
+
+    <footer>
+        &copy; 2024 Red Team Operations Hub | Powered by Sloth and Stagnation
+    </footer>
+
+</body>
+</html>
